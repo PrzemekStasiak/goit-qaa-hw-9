@@ -8,6 +8,7 @@ stopBtn.addEventListener('click', stopColor); // nasłuchiwanie przycisku stop g
 
 function changeColor() {
   // funkcja changeColor
+  startBtn.disabled = true; //dezaktywacja przycisku start - 12 linia także sprawdza, czy setInterval nie jest już uruchomiony
   if (!chd) {
     //sprawdzamy czy chd jest różne od null to zapobiegnie wielokrotnemu startowaniu funkcji gdy jest już uruchomiona
     chd = setInterval(RandomBackGroundHexColor, 1000); // gdy chd różne od nul sutawiamy interwał na 1s. i uruchamiamy funkcję RandomBackGroundHexColor
@@ -20,6 +21,7 @@ function RandomBackGroundHexColor() {
 }
 function stopColor() {
   // funkcja stopColor
+  startBtn.disabled = false //aktywacja przycisku start
   clearInterval(chd); //przerywamy cykl interval od zmiennej chd linia kodu 11
   chd = null; // sutawiamy zmienną na nul
 }
